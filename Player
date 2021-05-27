@@ -1,5 +1,4 @@
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 
 public class Player 
@@ -7,34 +6,32 @@ public class Player
 	private int xPosition, yPosition;
 	private Image player;
 	public Player() 
-{
-
-		ImageIcon img1 = new ImageIcon("C:\\Users\\zammu\\eclipse-workspace\\Maze\\Rabbit.png");
+	{
+		ImageIcon img1 = new ImageIcon("C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\Rabbit.png");
 		player = img1.getImage();
 		System.out.println(img1.toString());
 		xPosition = 2;
 		yPosition = 1;
-
 	}
 
-	public Image getPlayer() {
+	public Image getPlayer() 
+	{
 		return player; // return the image of rabbit
 	}
 
-	public int getXPosition() {
-
+	public int getXPosition() 
+	{
 		return xPosition; // current position of rabbit in x-axis
 	}
 
-	public int getYPosition() {
+	public int getYPosition() 
+	{
 		return yPosition;
 	}
 
-	public void move(int dx, int dy) {
-
+	public void move(int dx, int dy) 
+	{
 		xPosition += dx;
 		yPosition += dy;
-
 	}
-
 }
