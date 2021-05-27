@@ -1,0 +1,100 @@
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+
+import javax.swing.ImageIcon;
+
+public class Map 
+{
+	private Scanner m;
+	private String Map[] = new String[6];
+	private String imgName[]= {"C:\\Users\\zammu\\eclipse-workspace\\Maze\\jl7.png","C:\\Users\\zammu\\eclipse-workspace\\Maze\\jl4.png","C:\\Users\\zammu\\eclipse-workspace\\Maze\\Carrot.png","C:\\Users\\zammu\\eclipse-workspace\\Maze\\DeadEnd.jpg"};
+	private HashMap<String,ImageIcon> hashImage;
+	private Image wall,gameOver,road, finish;
+	private ImageIcon icon[]=new ImageIcon[4];
+	public Map()
+	{
+		hashImage=new HashMap<String,ImageIcon>();
+		for(int i=0;i<4;i++) 
+		{
+		icon[i]=getImage(imgName[i]);
+		}		
+		wall = icon[0].getImage();
+	   	road = icon[1].getImage();
+		finish = icon[2].getImage();
+		gameOver = icon[3].getImage();
+		openFile();
+		readFile();
+		closeFile();
+	}
+	
+	private ImageIcon getImage(String imgName) 
+	{
+		if(hashImage.containsKey(imgName)==true) 
+		{
+			return hashImage.get(imgName);
+		}
+		else 
+		{
+		
+			ImageIcon myImage = new ImageIcon(imgName);
+			hashImage.put(imgName, myImage);
+			return myImage;
+		
+		}
+	}
+
+	public Image getWall()
+	{
+		return wall;
+	}
+	public Image getRoad()
+	{
+		return road;
+	}
+	
+	public Image getFinish()
+	{
+		return finish;
+	}
+	public Image getGameOver()
+	{
+		return gameOver;
+	}
+	public String getMap(int x, int y)
+	{
+		String index = Map[y].substring(x, x + 1);
+		return index;
+	}
+	
+	public void openFile()
+	{
+		
+		try
+		{
+			
+			String s= System.getProperty("user.dir");
+			System.out.println(s);
+			m = new Scanner(new File("C:\\Users\\zammu\\eclipse-workspace\\Maze\\l"+Maze.count+".txt"));
+		}
+		catch(Exception e)
+		{
+			System.out.println("error loading map");
+		}
+		
+	}
+	public void readFile()
+	{
+		while(m.hasNext())
+		{
+			for(int i = 0; i < 6; i++)
+			{
+			Map[i] = m.next();
+			}
+		}
+	}
+	public void closeFile()
+	{
+		m.close();
+	}
+}
