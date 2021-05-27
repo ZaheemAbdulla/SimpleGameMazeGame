@@ -4,27 +4,21 @@ import javax.swing.*;
 
 public class Board extends JPanel implements ActionListener 
 {
-	
 	private Timer timer;
     private Board b;
 	private boolean win = false;
-	
 	private Map m;
 	private Maze maze;
 	private Player p;
-		
 	public Board()
 	{
-	
 		m = new Map();
 		p = new Player();
 	    addKeyListener(new Al());
 		setFocusable(true);
-		
 		timer= new Timer(10, this);
 	    timer.start();
 	}
-
 	public void actionPerformed(ActionEvent e)
 	{
 		if(m.getMap(p.getXPosition(), p.getYPosition()).equals("f"))
@@ -36,49 +30,46 @@ public class Board extends JPanel implements ActionListener
 		}
 		repaint();
 	}
-	public void paint(Graphics g){
-		super.paint(g);
-		
-		if(!win){
-			//System.out.println("level not win ");
-		for(int y = 0; y < 6; y++){
-			for(int x = 0; x < 6; x++){
-		
-				if(m.getMap(x, y).equals("f"))
-				{
-					g.drawImage(m.getFinish(), x * 32, y * 32, null);
-				}
-				
-				if(m.getMap(x, y).equals("w"))
-				{
-					g.drawImage(m.getWall(), x * 32, y * 32, null);
-					
-					
-				}
-				if(m.getMap(x, y).equals("r")){
-					g.drawImage(m.getRoad(), x * 32, y * 32, null);
-				}
-			}
-		
-			}
-		g.drawImage(p.getPlayer(), p.getXPosition() * 32, p.getYPosition() * 32, null); 
 	
+	public void paint(Graphics g)
+	{
+		super.paint(g);
+		if(!win)
+		{
+			//System.out.println("level not win ");
+			for(int y = 0; y < 6; y++)
+			{
+				for(int x = 0; x < 6; x++)
+				{
+					if(m.getMap(x, y).equals("f"))
+					{
+						g.drawImage(m.getFinish(), x * 32, y * 32, null);
+					}
+				
+					if(m.getMap(x, y).equals("w"))
+					{
+						g.drawImage(m.getWall(), x * 32, y * 32, null);
+					}
+					if(m.getMap(x, y).equals("r"))
+					{
+						g.drawImage(m.getRoad(), x * 32, y * 32, null);
+					}
+				}
+			}
+			g.drawImage(p.getPlayer(), p.getXPosition() * 32, p.getYPosition() * 32, null); 
 		}
-		
 		
 		if(win)
 		{
 			 if(Maze.count>2)
 			 {
 				 timer.stop();
-					
-				  g.drawImage(m.getGameOver(),5,5,null);
+				 g.drawImage(m.getGameOver(),5,5,null);
 			 }
+			 
 			 else
 			 {
 				 new Maze();
-			 				
-				
 			 }
 		}	
 
@@ -86,24 +77,20 @@ public class Board extends JPanel implements ActionListener
 	
 	public class Al extends KeyAdapter
 	{
-		
 		public void keyPressed(KeyEvent e)
 		{
 			int keycode = e.getKeyCode();
-			
 			if(keycode == KeyEvent.VK_UP)
 			{
 				if(!m.getMap(p.getXPosition(), p.getYPosition() -1).equals("w"))
 				{
 					p.move(0, -1);
 				}
-				
 			}
 			if(keycode == KeyEvent.VK_DOWN)
 			{
 				if(!m.getMap(p.getXPosition(), p.getYPosition() +1).equals("w"))
 				{
-
 					p.move(0, 1);
 				}
 				
@@ -112,27 +99,28 @@ public class Board extends JPanel implements ActionListener
 			{
 				if(!m.getMap(p.getXPosition() -1, p.getYPosition()).equals("w"))
 				{
-
 					p.move(-1, 0);
 				}
-	
 			}
+			
 			if(keycode == KeyEvent.VK_RIGHT)
 			{
 				if(!m.getMap(p.getXPosition() +1, p.getYPosition()).equals("w"))
 				{
-
 					p.move(1, 0);
 				}
 			}
 		}
-		}
-		public void keyReleased(KeyEvent e)
-		{
 			
-		}
-		public void keyTyped(KeyEvent e)
-		{
-    
-	  }
+	}
+		
+	public void keyReleased(KeyEvent e)
+	{
+			
+	}
+		
+	public void keyTyped(KeyEvent e)
+	{
+		
+	}
 }
