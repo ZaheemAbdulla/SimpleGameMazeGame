@@ -1,5 +1,4 @@
 import java.awt.Image;
-
 import javax.swing.JFrame;
 
 public class Maze extends JFrame 
@@ -8,19 +7,14 @@ public class Maze extends JFrame
 	JFrame f, f1;
 	private Board b;
 	private Image gameEnd;
-
 	public static void main(String[] args) 
 	{
 		new Maze();
 	}
-
 	public Maze() 
 	{
-
 		f = new JFrame();
-
 		f.setTitle("Maze Game");
-
 		f.add(new Board());
 		f.setSize(209, 232);
 		//f.getContentPane().setBackground(Color.white);
@@ -28,7 +22,5 @@ public class Maze extends JFrame
 		f.setVisible(true);
 		f.setResizable(false);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 	}
-
 }
