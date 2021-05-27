@@ -1,14 +1,13 @@
 import java.awt.*;
 import java.io.*;
 import java.util.*;
-
 import javax.swing.ImageIcon;
 
 public class Map 
 {
 	private Scanner m;
 	private String Map[] = new String[6];
-	private String imgName[]= {"C:\\Users\\zammu\\eclipse-workspace\\Maze\\jl7.png","C:\\Users\\zammu\\eclipse-workspace\\Maze\\jl4.png","C:\\Users\\zammu\\eclipse-workspace\\Maze\\Carrot.png","C:\\Users\\zammu\\eclipse-workspace\\Maze\\DeadEnd.jpg"};
+	private String imgName[]= {"C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\jl7.png","C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\jl4.png","C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\Carrot.png","C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\DeadEnd.png"};
 	private HashMap<String,ImageIcon> hashImage;
 	private Image wall,gameOver,road, finish;
 	private ImageIcon icon[]=new ImageIcon[4];
@@ -17,7 +16,7 @@ public class Map
 		hashImage=new HashMap<String,ImageIcon>();
 		for(int i=0;i<4;i++) 
 		{
-		icon[i]=getImage(imgName[i]);
+			icon[i]=getImage(imgName[i]);
 		}		
 		wall = icon[0].getImage();
 	   	road = icon[1].getImage();
@@ -36,11 +35,9 @@ public class Map
 		}
 		else 
 		{
-		
 			ImageIcon myImage = new ImageIcon(imgName);
 			hashImage.put(imgName, myImage);
 			return myImage;
-		
 		}
 	}
 
@@ -48,6 +45,7 @@ public class Map
 	{
 		return wall;
 	}
+	
 	public Image getRoad()
 	{
 		return road;
@@ -57,10 +55,12 @@ public class Map
 	{
 		return finish;
 	}
+	
 	public Image getGameOver()
 	{
 		return gameOver;
 	}
+	
 	public String getMap(int x, int y)
 	{
 		String index = Map[y].substring(x, x + 1);
@@ -69,19 +69,16 @@ public class Map
 	
 	public void openFile()
 	{
-		
 		try
 		{
-			
 			String s= System.getProperty("user.dir");
 			System.out.println(s);
-			m = new Scanner(new File("C:\\Users\\zammu\\eclipse-workspace\\Maze\\l"+Maze.count+".txt"));
+			m = new Scanner(new File("C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\l"+Maze.count+".txt"));
 		}
 		catch(Exception e)
 		{
 			System.out.println("error loading map");
 		}
-		
 	}
 	public void readFile()
 	{
@@ -89,7 +86,7 @@ public class Map
 		{
 			for(int i = 0; i < 6; i++)
 			{
-			Map[i] = m.next();
+				Map[i] = m.next();
 			}
 		}
 	}
