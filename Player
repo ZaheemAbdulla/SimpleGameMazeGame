@@ -7,7 +7,7 @@ public class Player
 	private Image player;
 	public Player() 
 	{
-		ImageIcon img1 = new ImageIcon("C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\Rabbit.png");
+		ImageIcon img1 = new ImageIcon("Picture/Rabbit.png");
 		player = img1.getImage();
 		System.out.println(img1.toString());
 		xPosition = 2;
