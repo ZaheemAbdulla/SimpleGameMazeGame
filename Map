@@ -7,7 +7,7 @@ public class Map
 {
 	private Scanner m;
 	private String Map[] = new String[6];
-	private String imgName[]= {"C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\jl7.png","C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\jl4.png","C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\Carrot.png","C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\DeadEnd.png"};
+	private String imgName[]= {"Picture/jl7.png","Picture/jl4.png","Picture/Carrot.png","Picture/DeadEnd.png"};
 	private HashMap<String,ImageIcon> hashImage;
 	private Image wall,gameOver,road, finish;
 	private ImageIcon icon[]=new ImageIcon[4];
@@ -73,7 +73,7 @@ public class Map
 		{
 			String s= System.getProperty("user.dir");
 			System.out.println(s);
-			m = new Scanner(new File("C:\\Users\\zammu\\OneDrive\\Documents\\SQA\\Eclipse\\l"+Maze.count+".txt"));
+			m = new Scanner(new File("Picture/l"+Maze.count+".txt"));
 		}
 		catch(Exception e)
 		{
